@@ -1,19 +1,10 @@
 <script setup>
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import CartList from "./CartList.vue";
 
-defineProps({
+const props = defineProps({
   cartList: {
     type: Array,
-  },
-  sumAmountCart: {
-    type: Number,
-  },
-  handleUpOrDownAmount: {
-    type: Function,
-  },
-  handleRemoveCart: {
-    type: Function,
   },
 });
 
@@ -26,6 +17,9 @@ const handleOpenModal = () => {
 const handleCloseModal = () => {
   isOpenModal.value = false;
 };
+const sumAmountCart = computed(() =>
+  props.cartList.reduce((sum, cart) => sum + cart.amount, 0)
+);
 </script>
 
 <template>
@@ -72,12 +66,16 @@ const handleCloseModal = () => {
         </div>
       </div>
     </nav>
-    <app-modal :isOpen="isOpenModal" :onClose="handleCloseModal">
+    <app-modal
+      :title="'Giỏ hàng'"
+      :isOpen="isOpenModal"
+      :onClose="handleCloseModal"
+    >
       <cart-list
         :cartList="cartList"
-        :handleUpOrDownAmount="handleUpOrDownAmount"
-        :handleRemoveCart="handleRemoveCart"
-      ></cart-list>
+        @handle-delete-cart="$emit('handle-delete-cart', $event)"
+        @handle-up-or-down="$emit('handle-up-or-down', $event)"
+      />
     </app-modal>
   </div>
 </template>

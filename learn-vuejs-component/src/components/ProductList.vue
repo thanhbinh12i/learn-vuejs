@@ -86,6 +86,13 @@ const productList = ref([
     quantityInStock: 7,
   },
 ]);
+import { defineEmits } from "vue";
+
+const emit = defineEmits(["handle-buy"]);
+
+const handleBuy = (productItem) => {
+  emit("handle-buy", productItem);
+};
 </script>
 
 <template>
@@ -102,7 +109,7 @@ const productList = ref([
           :key="index"
           class="col-lg-3 col-dm-4 col-sm-6 col-xs-12 product-item"
         >
-          <ProductItem :productItem="productItem" />
+          <ProductItem :productItem="productItem" @handle-buy="handleBuy" />
         </div>
       </div>
     </section>
