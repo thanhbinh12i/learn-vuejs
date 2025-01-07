@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Nguyễn Phạm Thanh Bình",
+    "avatar": "hinh",
+    "age": 20,
+    "description": "thân thiện , hoc hỏi nhanh",
+    "programmingLanguage": ["JS", "C#"],
+    "gender": "Nam",
+    "type": "ADMIN"
+  },
+  {
+    "id": 2,
+    "name": "Nguyễn Việt",
+    "avatar": "hinh",
+    "age": 20,
+    "description": "thân thiện , hoc hỏi nhanh",
+    "programmingLanguage": ["JS", "C#"],
+    "gender": "Nam",
+    "type": "CLIENT"
+  }
+]
