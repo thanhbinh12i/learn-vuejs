@@ -2,15 +2,18 @@
   <tr>
     <td>
       <img :src="face1" class="mr-2" alt="image" />
-      Nguyễn Phạm Thanh Bình
+      {{ user.name }}
     </td>
-    <td>23</td>
+    <td>{{ user.age }}</td>
     <td>
-      <label class="badge badge-gradient-primary mr-2">Java</label>
-      <label class="badge badge-gradient-primary mr-2">Java</label>
-      <label class="badge badge-gradient-primary mr-2">Java</label>
+      <label
+        v-for="(item, index) in user.programmingLanguage"
+        class="badge badge-gradient-primary mr-2"
+        :key="index"
+        >{{ item }}</label
+      >
     </td>
-    <td>Nam</td>
+    <td>{{ user.gender }}</td>
     <td>
       <button type="button" class="mr-2 btn btn-gradient-danger btn-icon-text">
         <i class="mdi mdi-delete btn-icon-prepend"></i> Remove
@@ -24,6 +27,11 @@
 
 <script setup>
 import face1 from "../assets/images/faces/face1.jpg";
+defineProps({
+  user: {
+    type: Object,
+  },
+});
 </script>
 
 <style></style>
