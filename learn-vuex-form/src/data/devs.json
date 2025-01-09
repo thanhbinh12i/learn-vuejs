@@ -11,12 +11,22 @@
   },
   {
     "id": 2,
-    "name": "Nguyễn Việt",
+    "name": "Nguyễn Văn Hoài",
     "avatar": "hinh",
     "age": 20,
     "description": "thân thiện , hoc hỏi nhanh",
-    "programmingLanguage": ["JS", "C#"],
+    "programmingLanguage": ["Java", "C#"],
     "gender": "Nam",
+    "type": "CLIENT"
+  },
+  {
+    "id": 3,
+    "name": "Phạm Thị Cẩm Anh",
+    "avatar": "hinh",
+    "age": 20,
+    "description": "thân thiện , hoc hỏi nhanh",
+    "programmingLanguage": ["JS"],
+    "gender": "Nữ",
     "type": "CLIENT"
   }
 ]
