@@ -15,7 +15,11 @@
     </td>
     <td>{{ user.gender }}</td>
     <td>
-      <button type="button" class="mr-2 btn btn-gradient-danger btn-icon-text">
+      <button
+        type="button"
+        class="mr-2 btn btn-gradient-danger btn-icon-text"
+        @click="handleRemove(user.id)"
+      >
         <i class="mdi mdi-delete btn-icon-prepend"></i> Remove
       </button>
       <button type="button" class="btn btn-gradient-info btn-icon-text">
@@ -25,13 +29,26 @@
   </tr>
 </template>
 
-<script setup>
+<script>
+import { mapActions } from "vuex";
 import face1 from "../assets/images/faces/face1.jpg";
-defineProps({
-  user: {
-    type: Object,
+export default {
+  props: {
+    user: {
+      type: Object,
+    },
   },
-});
+  data() {
+    return {
+      face1,
+    };
+  },
+  methods: {
+    ...mapActions({
+      handleRemove: "removeUserAction",
+    }),
+  },
+};
 </script>
 
 <style></style>

@@ -54,11 +54,31 @@ const store = createStore({
   mutations: {
     setSearchNameMutation(state, payload) {
       state.searchName = payload
+    },
+    addUserMutation(state, payload) {
+      state.userList.push(payload)
+    },
+    removeUserMutation(state, payload) {
+      const index = state.userList.findIndex((user) => user.id === payload)
+      if (index !== -1) {
+        state.userList.splice(index, 1)
+      }
     }
   },
+  //action xử lý các tác vụ bất đồng bộ (async)
   actions: {
     setSearchNameAction(context, payload) {
       context.commit('setSearchNameMutation', payload)
+    },
+    addUserAction(context, payload) {
+      const newUser = {
+        ...payload,
+        id: Math.random()
+      }
+      context.commit('addUserMutation', newUser)
+    },
+    removeUserAction(context, payload) {
+      context.commit('removeUserMutation', payload)
     }
   }
 })
