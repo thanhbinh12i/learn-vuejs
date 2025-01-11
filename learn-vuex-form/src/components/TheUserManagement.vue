@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import FormAddUser from "./FormAddUser.vue";
+import FormAddUser from "./FormUser.vue";
 import SearchBar from "./SearchBar.vue";
 import UserList from "./UserList.vue";
 export default {

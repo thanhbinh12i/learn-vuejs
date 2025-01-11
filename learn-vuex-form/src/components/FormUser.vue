@@ -41,7 +41,7 @@
                   type="checkbox"
                   class="form-check-input"
                   v-model="user.programmingLanguage"
-                  value="JavaScript" />
+                  value="JS" />
                 JavaScript <i class="input-helper"></i
               ></label>
             </div>
@@ -159,7 +159,7 @@
         <button
           type="submit"
           class="btn btn-gradient-primary mr-2"
-          @click.prevent="handleAddUser(user)"
+          @click.prevent="handleSubmit"
         >
           Submit
         </button>
@@ -172,6 +172,11 @@
 <script>
 import { mapActions } from "vuex";
 export default {
+  props: {
+    userInfo: {
+      type: Object,
+    },
+  },
   data() {
     return {
       user: {
@@ -186,9 +191,23 @@ export default {
     };
   },
   methods: {
+    handleSubmit() {
+      if (this.userInfo) {
+        this.handleUpdateUser(this.user);
+      } else {
+        this.handleAddUser(this.user);
+      }
+    },
     ...mapActions({
       handleAddUser: "addUserAction",
+      handleUpdateUser: "updateUserAction",
     }),
+  },
+  created() {
+    //chuyển đổi props thành data
+    if (this.userInfo) {
+      this.user = { ...this.userInfo };
+    }
   },
 };
 </script>

@@ -22,7 +22,7 @@ const store = createStore({
           "id": 2,
           "name": "Nguyễn Văn Hoài",
           "avatar": "hinh",
-          "age": 20,
+          "age": 54,
           "description": "thân thiện , hoc hỏi nhanh",
           "programmingLanguage": ["Java", "C#"],
           "gender": "Nam",
@@ -32,7 +32,7 @@ const store = createStore({
           "id": 3,
           "name": "Phạm Thị Cẩm Anh",
           "avatar": "hinh",
-          "age": 20,
+          "age": 45,
           "description": "thân thiện , hoc hỏi nhanh",
           "programmingLanguage": ["JS"],
           "gender": "Nữ",
@@ -63,6 +63,12 @@ const store = createStore({
       if (index !== -1) {
         state.userList.splice(index, 1)
       }
+    },
+    updateUserMutation(state, payload) {
+      const index = state.userList.findIndex((user) => user.id === payload.id)
+      if (index !== -1) {
+        state.userList[index] = payload
+      }
     }
   },
   //action xử lý các tác vụ bất đồng bộ (async)
@@ -79,6 +85,9 @@ const store = createStore({
     },
     removeUserAction(context, payload) {
       context.commit('removeUserMutation', payload)
+    },
+    updateUserAction(context, payload) {
+      context.commit('updateUserMutation', payload)
     }
   }
 })
