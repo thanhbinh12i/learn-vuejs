@@ -1,3 +1,5 @@
+import { addUserApi, getAllUserApi, removeUserApi, updateUserApi } from "@/apis/user";
+
 const state = () => {
   return {
     userList: [
@@ -45,6 +47,9 @@ const getters = {
   }
 };
 const mutations = {
+  setUserListMutation(state, payload) {
+    state.userList = payload
+  },
   setSearchNameMutation(state, payload) {
     state.searchName = payload
   },
@@ -66,22 +71,25 @@ const mutations = {
 };
 //action xử lý các tác vụ bất đồng bộ (async)
 const actions = {
+  async getAllUserAction(context) {
+    const payload = await getAllUserApi()
+    context.commit('setUserListMutation', payload)
+  },
   setSearchNameAction(context, payload) {
     context.commit('setSearchNameMutation', payload)
   },
-  addUserAction(context, payload) {
-    const newUser = {
-      ...payload,
-      id: Math.random()
-    }
-    context.commit('addUserMutation', newUser)
+  async addUserAction(context, payload) {
+    await addUserApi(payload)
+    context.dispatch('getAllUserAction')
   },
-  removeUserAction(context, payload) {
-    context.commit('removeUserMutation', payload)
+  async removeUserAction(context, payload) {
+    await removeUserApi(payload);
+    context.dispatch("getAllUserAction");
   },
-  updateUserAction(context, payload) {
-    context.commit('updateUserMutation', payload)
-  }
+  async updateUserAction(context, payload) {
+    await updateUserApi(payload);
+    context.dispatch("getAllUserAction");
+  },
 }
 
 export default {
