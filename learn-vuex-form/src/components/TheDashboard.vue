@@ -334,6 +334,7 @@
         </div>
       </div>
     </div>
+    <demo-life-cycle></demo-life-cycle>
   </div>
 </template>
 
@@ -345,6 +346,7 @@ import img3 from "../assets/images/dashboard/img_3.jpg";
 import img4 from "../assets/images/dashboard/img_4.jpg";
 import face3 from "../assets/images/faces/face3.jpg";
 import TheUserManagement from "./TheUserManagement.vue";
+import DemoLifeCycle from "./DemoLifeCycle.vue";
 </script>
 
 <style></style>
