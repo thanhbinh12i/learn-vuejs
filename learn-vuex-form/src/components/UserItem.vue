@@ -39,9 +39,10 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
 import face1 from "../assets/images/faces/face1.jpg";
 import FormEditUser from "./FormUser.vue";
+import { createNamespacedHelpers } from "vuex";
+const { mapActions } = createNamespacedHelpers("user");
 
 export default {
   components: { FormEditUser },

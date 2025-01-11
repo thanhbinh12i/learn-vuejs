@@ -23,7 +23,8 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { createNamespacedHelpers } from "vuex";
+const { mapActions } = createNamespacedHelpers("user");
 export default {
   state() {
     return {
