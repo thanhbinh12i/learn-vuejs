@@ -1,10 +1,15 @@
 import PetList from '@/views/PetList.vue'
+import UserDetail from '@/views/UserDetail.vue'
 import UserList from '@/views/UserList.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
-  { path: '/users', component: UserList },
+  // { path: '/', redirect: "/users" },
+  { path: '/users', component: UserList, alias: "/" },
   { path: '/pets', component: PetList },
+  { path: "/user-detail", component: UserDetail },
+  { path: "/:pathMatch(.*)*", redirect: "/" }, //404 Not Found
+
 ]
 
 const router = createRouter({
