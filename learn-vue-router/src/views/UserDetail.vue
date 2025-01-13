@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container mt-5">
     <div class="row">
       <div class="col-sm-5">
         <img class="img-thumbnail" :src="userDetail.avatar" alt="" />
@@ -12,8 +12,14 @@
           </span>
         </h3>
         <h3>
+          Age :
+          <span class="badge badge-info mt-4">
+            {{ userDetail.age }}
+          </span>
+        </h3>
+        <h3>
           Email :
-          <span class="badge badge-info">
+          <span class="badge badge-info mt-4">
             {{ userDetail.email }}
           </span>
         </h3>
@@ -37,7 +43,7 @@ export default {
     }),
   },
   created() {
-    this.getUserById(this.$route.params.userId)
+    this.getUserById(this.$route.params.id)
   },
 }
 </script>

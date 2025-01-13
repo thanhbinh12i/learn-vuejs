@@ -24,11 +24,10 @@ export default {
   },
   methods: {
     hanldeClickGoToDetail() {
-      // if(){}
       this.$router.replace({
         name: 'user-detail',
         params: {
-          userId: this.user.id,
+          id: this.user.id,
         },
       })
     },

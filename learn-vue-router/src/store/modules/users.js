@@ -7,7 +7,7 @@ const state = function () {
         age: 21,
         email: "nptbinh17092004@gmail.com",
         avatar:
-          "https://pdp.edu.vn/wp-content/uploads/2021/05/hinh-anh-avatar-cho-con-gai-1.jpg",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_ddEozElsXNCqhTLUo7mm1gAPgs4VYBwpIQ&s",
         typePets: ["Chó", "Mèo"],
       },
       {
@@ -16,7 +16,7 @@ const state = function () {
         age: 21,
         email: "binhnpt@fpt.com",
         avatar:
-          "https://pdp.edu.vn/wp-content/uploads/2021/05/hinh-anh-avatar-cho-con-gai-1.jpg",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_ddEozElsXNCqhTLUo7mm1gAPgs4VYBwpIQ&s",
         typePets: ["Chuột", "Cá"],
       },
     ],

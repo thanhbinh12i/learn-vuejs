@@ -2,7 +2,7 @@
   <nav class="p-3 mb-2 bg-dark text-white">
     <ul class="d-flex justify-content-center align-items-center">
       <li>
-        <router-link class="mx-3" to="/users">Users</router-link>
+        <router-link class="mx-3" :to="{ name: 'user-list' }">Users</router-link>
       </li>
       <li>
         <router-link class="mx-3" to="/pets">Pets</router-link>

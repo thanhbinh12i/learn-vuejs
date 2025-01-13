@@ -5,9 +5,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   // { path: '/', redirect: "/users" },
-  { path: '/users', component: UserList, alias: "/" },
+  { path: '/users', name: 'user-list', component: UserList, alias: "/" },
   { path: '/pets', component: PetList },
-  { path: "/user-detail", component: UserDetail },
+  { path: "/user-detail/:id", name: "user-detail", component: UserDetail },
   { path: "/:pathMatch(.*)*", redirect: "/" }, //404 Not Found
 
 ]
